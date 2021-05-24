@@ -10,6 +10,7 @@ add_message_files (
     FILES
     DeviceCmd.msg
     DeviceData.msg
+    EgoCommands.msg
     EmotionParams.msg
     PerceptionConcept.msg
 )
