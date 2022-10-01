@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
+
   <name>aliveos_msgs</name>
-  <version>0.2.0</version>
+  <version>1.0.0</version>
   <description>The aliveos_msgs package</description>
 
   <author email="mail@agramakov.me">Andrei Gramakov</author>
   <maintainer email="mail@agramakov.me">Andrei Gramakov</maintainer>
   <license>GPLv3</license>
-  <url type="website">https://github.com/an-dr/aliveos</url>
+  <url type="website">https://github.com/alive-os</url>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <exec_depend>std_msgs</exec_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+  <build_depend>builtin_interfaces</build_depend>
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  
+  <member_of_group>rosidl_interface_packages</member_of_group>
 
 </package>

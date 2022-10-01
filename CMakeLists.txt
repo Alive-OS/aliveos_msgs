@@ -1,33 +1,31 @@
-cmake_minimum_required (VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.5)
 project (aliveos_msgs)
 
-find_package (catkin REQUIRED COMPONENTS std_msgs message_generation)
+find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces  REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-add_message_files (
-    DIRECTORY
-    msg
-    #
-    FILES
-    DeviceCmd.msg
-    DeviceData.msg
-    EgoCommands.msg
-    EmotionParams.msg
-    PerceptionConcept.msg
+
+set(msg_files
+    "msg/DeviceCmd.msg"
+    "msg/DeviceData.msg"
+    "msg/EgoCommands.msg"
+    "msg/EmotionParams.msg"
+    "msg/PerceptionConcept.msg"
 )
 
-add_service_files (
-    DIRECTORY
-    srv
-    #
-    FILES
-    CommandConcept.srv
-    CommandConceptDescriptor.srv
-    EmotionCoreDataDescriptor.srv
-    EmotionCoreWrite.srv
-    Hw.srv
-    PerceptionConceptDescriptor.srv
+set(srv_files
+    "srv/CommandConcept.srv"
+    "srv/CommandConceptDescriptor.srv"
+    "srv/EmotionCoreDataDescriptor.srv"
+    "srv/EmotionCoreWrite.srv"
+    "srv/Hw.srv"
+    "srv/PerceptionConceptDescriptor.srv"
 )
 
-generate_messages (DEPENDENCIES std_msgs)
+rosidl_generate_interfaces(${PROJECT_NAME}
+    ${msg_files}
+    ${srv_files}
+    DEPENDENCIES builtin_interfaces)
 
-catkin_package (CATKIN_DEPENDS std_msgs)
+ament_package()
